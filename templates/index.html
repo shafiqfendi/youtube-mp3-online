@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penukar YouTube ke MP3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5; /* Warna latar belakang lembut */
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 550px;
+        }
+        h1 {
+            color: #2c3e50; /* Warna tajuk yang lebih gelap */
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        p.description {
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        input[type="text"] {
+            width: calc(100% - 30px); /* Kurangkan padding */
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da; /* Warna border yang lebih lembut */
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+        }
+        button {
+            background-color: #28a745; /* Warna butang hijau yang menarik */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #218838; /* Warna hijau yang lebih gelap bila hover */
+            transform: translateY(-2px); /* Kesan sedikit naik bila hover */
+        }
+        .message {
+            margin-top: 25px;
+            color: #dc3545; /* Merah untuk mesej ralat */
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .note {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Penukar YouTube ke MP3</h1>
+        <p class="description">
+            Sila masukkan URL video YouTube di bawah untuk menukar dan memuat turunnya sebagai fail MP3.
+        </p>
+        <form action="/convert" method="post">
+            <input type="text" name="video_url" placeholder="Contoh: https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
+            <button type="submit">Tukar & Muat Turun MP3</button>
+        </form>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <p class="note">
+            Sila gunakan alat ini dengan bertanggungjawab dan patuhi undang-undang hak cipta.
+        </p>
+    </div>
+</body>
+</html>
