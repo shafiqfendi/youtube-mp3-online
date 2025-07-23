@@ -11,7 +11,16 @@ UPLOAD_FOLDER = 'mp3_downloads' # Folder untuk menyimpan fail sementara
 
 # Pastikan folder 'mp3_downloads' ada. Jika tiada, ia akan buat.
 if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+    try:
+        os.makedirs(UPLOAD_FOLDER)
+        print(f"Successfully created upload folder: {UPLOAD_FOLDER}") # Tambah log ini
+    except Exception as e:
+        print(f"ERROR: Could not create upload folder {UPLOAD_FOLDER}: {e}") # Tambah log ralat
+        # Anda boleh juga keluar dari aplikasi jika ini ralat kritikal
+        # import sys
+        # sys.exit(1)
+else:
+    print(f"Upload folder already exists: {UPLOAD_FOLDER}") # Tambah log ini
 
 # Fungsi untuk memadam fail selepas respons dihantar ke browser
 @app.after_request
